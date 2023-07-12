@@ -9,7 +9,7 @@ import 'package:photo_manager/photo_manager.dart' show AssetType;
 
 /// All text delegates.
 const List<AssetPickerTextDelegate> assetPickerTextDelegates =
-    <AssetPickerTextDelegate>[
+<AssetPickerTextDelegate>[
   AssetPickerTextDelegate(),
   EnglishAssetPickerTextDelegate(),
   HebrewAssetPickerTextDelegate(),
@@ -19,6 +19,7 @@ const List<AssetPickerTextDelegate> assetPickerTextDelegates =
   ArabicAssetPickerTextDelegate(),
   FrenchAssetPickerTextDelegate(),
   VietnameseAssetPickerTextDelegate(),
+  KoreanAssetPickerTextDelegate(),
 ];
 
 /// Obtain the text delegate from the given locale.
@@ -106,10 +107,10 @@ class AssetPickerTextDelegate {
   String durationIndicatorBuilder(Duration duration) {
     const String separator = ':';
     final String minute = duration.inMinutes.toString().padLeft(2, '0');
-    final String second =
-        (duration - Duration(minutes: duration.inMinutes)).inSeconds
-            .toString()
-            .padLeft(2, '0');
+    final String second = (duration - Duration(minutes: duration.inMinutes))
+        .inSeconds
+        .toString()
+        .padLeft(2, '0');
     return '$minute$separator$second';
   }
 
@@ -411,8 +412,8 @@ class GermanAssetPickerTextDelegate extends AssetPickerTextDelegate {
   @override
   String get accessAllTip =>
       'Die App kann nur auf einige der Dateien auf dem Gerät zugreifen. '
-      'Öffnen Sie die Systemeinstellungen und erlauben Sie der App, '
-      'auf alle Dateien auf dem Gerät zuzugreifen';
+          'Öffnen Sie die Systemeinstellungen und erlauben Sie der App, '
+          'auf alle Dateien auf dem Gerät zuzugreifen';
 
   @override
   String get goToSystemSettings => 'Gehe zu den Systemeinstellungen';
@@ -509,7 +510,7 @@ class RussianAssetPickerTextDelegate extends AssetPickerTextDelegate {
   @override
   String get accessAllTip =>
       'У приложения доступ только к некоторым файлам на устройстве. '
-      'Откройте настройки системы и разрешите приложению доступ ко всем файлам на устройстве.';
+          'Откройте настройки системы и разрешите приложению доступ ко всем файлам на устройстве.';
 
   @override
   String get goToSystemSettings => 'Открыть настройки системы';
@@ -702,7 +703,7 @@ class ArabicAssetPickerTextDelegate extends AssetPickerTextDelegate {
   @override
   String get accessAllTip =>
       'يمكن للتطبيق الوصول فقط إلى بعض الملفات الموجودة على الجهاز. '
-      'افتح إعدادات النظام واسمح للتطبيق بالوصول إلى جميع الملفات الموجودة على الجهاز.';
+          'افتح إعدادات النظام واسمح للتطبيق بالوصول إلى جميع الملفات الموجودة على الجهاز.';
 
   @override
   String get goToSystemSettings => 'فتح إعدادات النظام';
@@ -800,8 +801,8 @@ class FrenchAssetPickerTextDelegate extends AssetPickerTextDelegate {
   @override
   String get accessAllTip =>
       "L'application ne peut accéder qu'à certains medias. "
-      "Allez dans les paramètres système et autoriser l'application "
-      "à accéder à tous les medias sur l'appareil";
+          "Allez dans les paramètres système et autoriser l'application "
+          "à accéder à tous les medias sur l'appareil";
 
   @override
   String get goToSystemSettings => 'Allez dans les paramètres système';
@@ -940,4 +941,98 @@ class VietnameseAssetPickerTextDelegate extends AssetPickerTextDelegate {
 
   @override
   String get sUnitAssetCountLabel => 'số lượng';
+}
+
+/// [AssetPickerTextDelegate] implements with Korean.
+/// 한국어 지역화
+class KoreanAssetPickerTextDelegate extends AssetPickerTextDelegate {
+  const KoreanAssetPickerTextDelegate();
+
+  @override
+  String get languageCode => 'ko';
+
+  @override
+  String get confirm => '확인';
+
+  @override
+  String get cancel => '취소';
+
+  @override
+  String get edit => '편집';
+
+  @override
+  String get gifIndicator => 'GIF';
+
+  @override
+  String get loadFailed => '불러오기 실패';
+
+  @override
+  String get original => '원본';
+
+  @override
+  String get preview => '미리보기';
+
+  @override
+  String get select => '선택';
+
+  @override
+  String get emptyList => '빈 목록';
+
+  @override
+  String get unSupportedAssetType => '지원하지 않는 HEIC 미디어 유형.';
+
+  @override
+  String get unableToAccessAll => '기기의 모든 미디어에 접근할 수 없습니다.';
+
+  @override
+  String get viewingLimitedAssetsTip => '앱에 접근 가능한 미디어과 앨범만 볼 수 있습니다.';
+
+  @override
+  String get changeAccessibleLimitedAssets => '접근 가능한 미디어을 업데이트하려면 클릭하세요';
+
+  @override
+  String get accessAllTip => '앱은 기기의 일부 미디어에만 접근할 수 있습니다. '
+      '시스템 설정으로 이동하여 앱이 기기의 모든 미디어에 접근하도록 허용하세요.';
+
+  @override
+  String get goToSystemSettings => '시스템 설정으로 이동';
+
+  @override
+  String get accessLimitedAssets => '제한된 접근으로 계속';
+
+  @override
+  String get accessiblePathName => '접근 가능한 미디어';
+
+  @override
+  String get sTypeAudioLabel => '오디오';
+
+  @override
+  String get sTypeImageLabel => '이미지';
+
+  @override
+  String get sTypeVideoLabel => '비디오';
+
+  @override
+  String get sTypeOtherLabel => '다른 미디어';
+
+  @override
+  String get sActionPlayHint => '재생';
+
+  @override
+  String get sActionPreviewHint => '미리보기';
+
+  @override
+  String get sActionSelectHint => '선택';
+
+  @override
+  String get sActionSwitchPathLabel => '경로 전환';
+
+  @override
+  String get sActionUseCameraHint => '카메라 사용';
+
+  @override
+  String get sNameDurationLabel => '기간';
+
+  @override
+  String get sUnitAssetCountLabel => '개수';
 }

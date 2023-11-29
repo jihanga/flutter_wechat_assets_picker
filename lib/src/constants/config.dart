@@ -13,6 +13,7 @@ import 'enums.dart';
 
 class AssetPickerConfig {
   const AssetPickerConfig({
+    this.permissionRequestOption = const PermissionRequestOption(),
     this.selectedAssets,
     this.maxAssets = defaultMaxAssetsCount,
     this.pageSize = defaultAssetsPerPage,
@@ -61,6 +62,7 @@ class AssetPickerConfig {
           'Custom item did not set properly.',
         );
 
+  final PermissionRequestOption permissionRequestOption;
   /// Selected assets.
   /// 已选中的资源
   final List<AssetEntity>? selectedAssets;
